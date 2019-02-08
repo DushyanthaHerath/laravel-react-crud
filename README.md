@@ -14,6 +14,7 @@
 - Run __php artisan key:generate__
 - Copy students_records.csv file to __storage/app/__
 - Run __php artisan migrate__
+- Run __php artisan storage:link__
 - Run __php artisan db:seed__
 - Run __npm run dev__
 - Run __php artisan serve__
