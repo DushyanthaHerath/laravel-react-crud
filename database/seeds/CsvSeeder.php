@@ -16,29 +16,29 @@ class CsvSeeder extends Seeder
         if (($handle = fopen($filename, "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 1001, ",")) !== FALSE) {
                 $num = count($data);                
-                if($row>1) {
-                    // Find or Create Teacher
-                    $teacherId = 0;
-                    if(App\Models\Teacher::where('name', $data[0])->count()>0) {
-                        $teacher = App\Models\Teacher::where('name', $data[0])->first();
-                        $teacherId = $teacher->id;
-                    } else {                        
-                        $teacher = new App\Models\Teacher;
-                        $teacher->name = $data[0];
-                        $teacher->save();
-                        $teacherId = $teacher->id;
-                    }                        
+                if($row>1) {                                           
                     // Find or Create Class
                     $classRoomId = 0;
-                    if(App\Models\ClassRoom::where('name', $data[1])->count()>0) {
-                        $classRoom = App\Models\ClassRoom::where('name', $data[1])->first();
+                    if(App\Models\ClassRoom::where('name', $data[0])->count()>0) {
+                        $classRoom = App\Models\ClassRoom::where('name', $data[0])->first();
                         $classRoomId = $classRoom->id;
                     } else {
                         $classRoom = new App\Models\ClassRoom;
-                        $classRoom->name = $data[1];
+                        $classRoom->name = $data[0];
                         $classRoom->save();
                         $classRoomId = $classRoom->id;
                     }
+                    // Find or Create Teacher
+                    $teacherId = 0;
+                    if(App\Models\Teacher::where('name', $data[1])->count()>0) {
+                        $teacher = App\Models\Teacher::where('name', $data[1])->first();
+                        $teacherId = $teacher->id;
+                    } else {                        
+                        $teacher = new App\Models\Teacher;
+                        $teacher->name = $data[1];
+                        $teacher->save();
+                        $teacherId = $teacher->id;
+                    } 
                     
                     $student = new App\Models\Student;
                     $student->firstname = $data[2];
