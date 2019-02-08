@@ -12,7 +12,7 @@
 - Run __composer install__
 - Run __composer dump-autoload__
 - Run __php artisan key:generate__
-- Copy students_records.csv file to __storage/app/__
+- Copy students_records.csv file to __storage/app/public__ (Create public directory)
 - Run __php artisan migrate__
 - Run __php artisan storage:link__
 - Run __php artisan db:seed__
