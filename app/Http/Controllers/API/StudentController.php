@@ -44,7 +44,7 @@ class StudentController extends Controller
             return response()
             ->json(['errors'=>$errors]);
         } else {
-            $student = Student::create($request->all());
+            $student = Student::create(Request::all());
 
             return (new StudentResource($student))
                 ->response()
