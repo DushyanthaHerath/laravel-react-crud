@@ -16,6 +16,7 @@
 - Run __php artisan migrate__
 - Run __php artisan storage:link__
 - Run __php artisan db:seed__
+- Run __npm install__
 - Run __npm run dev__
 - Run __php artisan serve__
 
