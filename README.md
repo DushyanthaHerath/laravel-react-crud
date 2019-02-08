@@ -1,4 +1,4 @@
-# KindHub Student Information System
+# KindHub Student Information Management Sample App
 
 ## Included
 - Frontend: React
