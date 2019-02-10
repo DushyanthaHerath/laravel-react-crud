@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\StudentCollection;
 use App\Http\Resources\StudentResource;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Pagination\Paginator;
 
 class StudentController extends Controller
 {
@@ -18,7 +19,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return StudentResource::collection(Student::all());
+        return StudentResource::collection(Student::simplePaginate(15));
     }
 
     /**
@@ -87,7 +88,7 @@ class StudentController extends Controller
             return response()
             ->json(['errors'=>$errors]);
         } else {
-            $student->update($request->all());
+            $student->update($xrequest->all());
 
             return (new StudentResource($student))
                 ->response()

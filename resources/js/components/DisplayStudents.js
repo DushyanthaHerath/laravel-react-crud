@@ -2,26 +2,37 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router';
 import TableRow from './TableRow';
+import Paginate from './Paginate';
 
 class DisplayStudents extends Component {
     constructor(props) {
         super(props);
-        this.state = {value: '', items: ''};
+        this.handleItemsChange=this.handleItemsChange.bind(this);
+        this.state = {value: '', items: '', pagination: ''};
+    }
+    handleItemsChange(data) {
+        this.setState({items:data});
     }
     componentDidMount() {
         axios.get('http://localhost:8000/api/students')
-                .then(response => {
-                    this.setState({items: response.data});
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
+        .then(response => {
+            this.handleItemsChange(response.data.data);
+            this.setState({pagination:response.data.links});
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
     }
     tabRow() {
         if (this.state.items instanceof Array) {
             return this.state.items.map(function (object, i) {
                 return <TableRow obj={object} key={i} />;
             })
+        }
+    }
+    pagination() {
+        if(this.state.pagination instanceof Object) {
+            return <Paginate obj={this.state.pagination} handler={this.handleItemsChange} />;
         }
     }
 
@@ -37,15 +48,15 @@ class DisplayStudents extends Component {
                         </div>
                     </div><br />
                 
-                    <table className="table table-hover">
+                    <table className="table table-dark table-hover">
                         <thead>
                             <tr>
                                 <td>ID</td>
                                 <td>First Name</td>
                                 <td>Last Name</td>
                                 <td>Gender</td>
-                                <td>Class Room</td>
                                 <td>Teacher</td>
+                                <td>Class Room</td>
                                 <td>Joined Year</td>
                                 <td>Actions</td>
                             </tr>
@@ -54,6 +65,7 @@ class DisplayStudents extends Component {
                             {this.tabRow()}
                         </tbody>
                     </table>
+                    <div>{this.pagination()}</div>
                 </div>
                 )
     }

@@ -3,18 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/html/kindhub/app/Http/Controllers/API/StudentController.php</file>
+            <file>file:/var/www/html/kindhub/resources/js/components/Paginate.js</file>
+            <file>file:/var/www/html/kindhub/.env</file>
+            <file>file:/var/www/html/kindhub/app/Models/ClassRoom.php</file>
+            <file>file:/var/www/html/kindhub/resources/js/components/DisplayStudents.js</file>
+            <file>file:/var/www/html/kindhub/app/Http/Kernel.php</file>
             <file>file:/var/www/html/kindhub/database/seeds/CsvSeeder.php</file>
             <file>file:/var/www/html/kindhub/.gitignore</file>
-            <file>file:/var/www/html/kindhub/app/Http/Controllers/API/StudentController.php</file>
             <file>file:/var/www/html/kindhub/app/Models/Student.php</file>
             <file>file:/var/www/html/kindhub/app/Http/Resources/StudentCollection.php</file>
             <file>file:/var/www/html/kindhub/database/migrations/2019_02_06_155552_create_students_table.php</file>
-            <file>file:/var/www/html/kindhub/.env</file>
-            <file>file:/var/www/html/kindhub/app/Models/ClassRoom.php</file>
-            <file>file:/var/www/html/kindhub/app/Http/Kernel.php</file>
+            <file>file:/var/www/html/kindhub/resources/js/components/TableRow.js</file>
             <file>file:/var/www/html/kindhub/resources/views/welcome.blade.php</file>
             <file>file:/var/www/html/kindhub/app/Http/Resources/StudentResource.php</file>
             <file>file:/var/www/html/kindhub/routes/api.php</file>
+            <file>file:/var/www/html/kindhub/resources/js/components/CreateStudent.js</file>
         </group>
     </open-files>
 </project-private>
