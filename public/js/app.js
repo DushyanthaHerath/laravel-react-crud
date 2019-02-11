@@ -67765,7 +67765,7 @@ function (_Component) {
     _classCallCheck(this, DisplayStudents);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DisplayStudents).call(this, props));
-    _this.handleItemsChange = _this.handleItemsChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleDataChange = _this.handleDataChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.state = {
       value: '',
       items: '',
@@ -67775,10 +67775,11 @@ function (_Component) {
   }
 
   _createClass(DisplayStudents, [{
-    key: "handleItemsChange",
-    value: function handleItemsChange(data) {
+    key: "handleDataChange",
+    value: function handleDataChange(data) {
       this.setState({
-        items: data
+        items: data.data,
+        pagination: data.links
       });
     }
   }, {
@@ -67787,11 +67788,7 @@ function (_Component) {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/students').then(function (response) {
-        _this2.handleItemsChange(response.data.data);
-
-        _this2.setState({
-          pagination: response.data.links
-        });
+        _this2.handleDataChange(response.data);
       }).catch(function (error) {
         console.log(error);
       });
@@ -67814,7 +67811,7 @@ function (_Component) {
       if (this.state.pagination instanceof Object) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Paginate__WEBPACK_IMPORTED_MODULE_4__["default"], {
           obj: this.state.pagination,
-          handler: this.handleItemsChange
+          handler: this.handleDataChange
         });
       }
     }
@@ -67892,7 +67889,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "navbar navbar-dark bg-dark"
+        className: "navbar navbar-expand-lg navbar-dark bg-dark"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "navbar-brand",
         href: "#"
@@ -67985,8 +67982,8 @@ function (_Component) {
     key: "handlePaginate",
     value: function handlePaginate(e, handler) {
       e.preventDefault();
-      axios.get(e.target.getA).then(function (response) {
-        handler(response.data.data);
+      axios.get(e.target.getAttribute('href')).then(function (response) {
+        handler(response.data);
       }).catch(function (error) {
         console.log(error);
       });

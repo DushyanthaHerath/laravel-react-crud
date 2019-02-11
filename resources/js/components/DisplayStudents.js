@@ -7,17 +7,16 @@ import Paginate from './Paginate';
 class DisplayStudents extends Component {
     constructor(props) {
         super(props);
-        this.handleItemsChange=this.handleItemsChange.bind(this);
+        this.handleDataChange=this.handleDataChange.bind(this);
         this.state = {value: '', items: '', pagination: ''};
     }
-    handleItemsChange(data) {
-        this.setState({items:data});
+    handleDataChange(data) {
+        this.setState({items:data.data, pagination:data.links});
     }
     componentDidMount() {
         axios.get('http://localhost:8000/api/students')
         .then(response => {
-            this.handleItemsChange(response.data.data);
-            this.setState({pagination:response.data.links});
+            this.handleDataChange(response.data);
         })
         .catch(function (error) {
             console.log(error);
@@ -32,7 +31,7 @@ class DisplayStudents extends Component {
     }
     pagination() {
         if(this.state.pagination instanceof Object) {
-            return <Paginate obj={this.state.pagination} handler={this.handleItemsChange} />;
+            return <Paginate obj={this.state.pagination} handler={this.handleDataChange} />;
         }
     }
 
