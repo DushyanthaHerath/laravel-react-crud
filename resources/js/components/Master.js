@@ -4,7 +4,8 @@ import { Router, Route, Link } from 'react-router';
 class Master extends Component {
   render(){
     return (
-      <div className="container">
+    <body className="bg-dark text-light">
+      <div className="container-fluid">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <a className="navbar-brand" href="#">KindHub</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,6 +23,7 @@ class Master extends Component {
             {this.props.children}
         </div>
       </div>
+    </body>
     )
   }
 }
