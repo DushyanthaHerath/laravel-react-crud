@@ -4,6 +4,10 @@
 - Frontend: React
 - Backend: Laravel 5.7
 
+## Pre-requirements
+- React: React router 3
+- Laravel: Laravel Cors
+
 ## How to use
 
 - Clone: __git clone git@github.com:DushyanthaHerath/student-information-management.git kindhub__
