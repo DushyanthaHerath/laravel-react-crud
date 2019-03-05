@@ -1,4 +1,4 @@
-# KindHub Student Information Management Sample App
+# Laravel React Sample Application (No authentication)
 
 ## Included
 - Frontend: React
